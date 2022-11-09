@@ -25,9 +25,13 @@ function App() {
     const requestOptions = {
       method: "POST",
       body: formData,
+      mode: "cors",
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+      },
     };
 
-    fetch("http://127.0.0.1:5000/coordinates", requestOptions)
+    fetch("http://localhost:5001/coordinates", requestOptions)
       .then((response) => response.text())
       .then((data) => setData(JSON.parse(data)));
 
@@ -44,7 +48,7 @@ function App() {
   };
 
   return (
-    <div className="App">
+    <div className="App relative">
       <div
         className={
           "min-h-screen bg-gradient-to-b from-gray-900 to-gray-600 bg-gradient-to-r"
@@ -54,13 +58,13 @@ function App() {
           Fetch Rewards MLE Assessment
         </div>
 
-        <div className={"grid grid-cols-2 gap-2 content-center mt-24"}>
-          <div className={""}>
+        <div className={"flex grid grid-cols-2 gap-2 content-center mt-24"}>
+          <div className={"mx-auto"}>
             <p className={"text-white text-3xl"}>
               Please input the image dimensions as (rows, cols):{" "}
             </p>
             <br />
-            <form method="post" action="">
+            <form>
               <input
                 name={"dimension"}
                 id={"dimension"}
@@ -70,13 +74,13 @@ function App() {
                 name="width"
                 placeholder="Example: (10, 12)"
                 className={
-                  "border-2 rounded-md focus:outline-none caret-pink-400 text-pink-400 pl-3 border-white text-3xl"
+                  "border-2 rounded-md focus:outline-none pl-3 border-white text-3xl"
                 }
               />
             </form>
           </div>
 
-          <div className={""}>
+          <div>
             <p className={"text-white text-3xl"}>
               Please input the corner points:{" "}
             </p>
@@ -90,7 +94,7 @@ function App() {
                 type="text"
                 name="width"
                 placeholder="Example: [(1.5, 1.5), (4.0, 1.5), ...]"
-                className="border-2 rounded-md focus:outline-none caret-pink-400 text-pink-400 pl-3 border-white text-3xl"
+                className="border-2 rounded-md focus:outline-none pl-3 border-white text-3xl"
               />
             </form>
           </div>

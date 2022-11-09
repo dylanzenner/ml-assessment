@@ -1,0 +1,17 @@
+version: "3.8"
+services:
+  backend:
+    build: ./backend
+    container_name: ml_assessment_backend
+    ports:
+      - '5001:5000'
+    # volumes:
+    #   - ./backend:/code
+
+  frontend:
+    build: ./frontend
+    container_name: ml_assessment_frontend
+    ports:
+      - '3000:3000'
+    stdin_open: true
+    tty: true
