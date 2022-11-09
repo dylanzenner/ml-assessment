@@ -9,6 +9,4 @@
   ```bash
     docker compose up
   ```
-<br>
 
-# Steps for replication (production):
