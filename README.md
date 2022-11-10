@@ -1,7 +1,8 @@
 
 # Steps for replication (local):
 - Clone the repo
-- make sure the docker daemon is running
+- Start the docker daemon
+- Open a terminal in the project root directory
 - Run the following commands in order:
   ```bash
     docker compose build
